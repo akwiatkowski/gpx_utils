@@ -1,10 +1,7 @@
 source "http://rubygems.org"
 
 gem 'nokogiri'
-gem 'mini_exiftool'
 gem 'builder'
-gem 'rmagick'
-gem 'chunky_png'
 
 group :development do
   gem "rspec"

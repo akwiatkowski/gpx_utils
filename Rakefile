@@ -14,15 +14,15 @@ require 'rake'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "gpx2exif"
-  gem.homepage = "http://github.com/akwiatkowski/gpx2exif"
+  gem.name = "gpx_utils"
+  gem.homepage = "http://github.com/akwiatkowski/gpx_utils"
   gem.license = "LGPLv3"
-  gem.summary = %Q{Mass geotagger using GPX files}
-  gem.description = %Q{Mass geotagger using GPX files.}
+  gem.summary = %Q{GPX file utilities}
+  gem.description = %Q{GPX file utilities. Import track file, import/export waypoints file.}
   gem.email = "bobikx@poczta.fm"
   gem.authors = ["Aleksander Kwiatkowski"]
   # dependencies defined in Gemfile
-  gem.executables = ['geotag_all_images', 'geotag_simulate', 'generate_garmin_waypoints', 'gpx2png']
+  gem.executables = ['generate_garmin_waypoints']
 
   gem.files = FileList[
     "[A-Z]*", "{bin,generators,lib,test}/**/*"
@@ -43,15 +43,7 @@ end
 
 task :default => :spec
 
-require 'rake/rdoctask'
-Rake::RDocTask.new do |rdoc|
-  version = File.exist?('VERSION') ? File.read('VERSION') : ""
-
-  rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "gpx2exif #{version}"
-  rdoc.rdoc_files.include('README*')
-  rdoc.rdoc_files.include('lib/**/*.rb')
-end
+require 'rdoc/task'
 
 desc "Run RSpec with code coverage"
 task :coverage do

@@ -1,41 +1,45 @@
-gpx2exif
+gpx_utils
 =======
 
-Geotagging
-----------
+Import track file
+-----------------
 
-Geotag your photos using stored GPX files. At this moment it supports only Garmin eTrex devices.
-
-
-Disclaimer
-----------
-
-This gem add one executable which overwrite JPG files. BACKUP IS NEEDED!
+    g = GpxUtils::TrackImporter.new
+    g.add_file('track_file.gpx')
+    g.coords
+     => [{:lat=>52.4606258981, :lon=>16.9213317242, :time=>2012-03-24 18:48:22 +0100, :alt=>83.77}, ...]
 
 
-How to use it
--------------
+Import waypoints file
+---------------------
 
-1. gem install gpx2exif
-
-2. Go to path where you have JPG/JPEG photos (case insensitive) and GPX files.
-
-3. From 0.0.1 there is 'simulation command'. Type 'geotag_simulate' and enter.
-
-4. WARNING! it will overwrite all your photos so MAKE A BACKUP!
-
-5. Type 'geotag_all_images' and press enter key.
-
-6. See a nice piece of output and now you have geotagged photos :)
+    g = GpxUtils::WaypointsImporter.new
+    g.add_file('waypoints.gpx')
+    g.pois
+     => [{:lat=>49.461531, :lon=>21.160355, :time=>2012-04-30 09:10:48 +0200, :alt=>492.629486, :name=>"PKS", :sym=>"Trail Head"}, ...]
 
 
-If something is not working send me e-mail and I'll fix it.
+Export waypoints to GPX file
+------------------------
+
+    g = GpxUtils::WaypointsExporter.new
+    lat = 52.384444
+    lon = 16.193056
+    name = "point"
+    cmt = "comment" # optional
+    time = "created_at" # optional
+    ele = 200 # 200m above sea level, optional
+    sym = "Trail Head" # Garmin icon string, optional
+    g.addg.add(lat, lon, name, cmt, time, ele, sym)
+    #g.addg.add(lat, lon, name) # w/o optional parameters
+    xml = g.to_xml
+    xmp # GPX file content
 
 
 Create waypoint files
 ---------------------
 
-You can prepare your own list of waypoints and then store into eTrex using GPX file. At this moment there is
+You can prepare your own list of waypoints and then store into Garmin eTrex device using a GPX file. At this moment there is
 only possible to convert data from YAML file to GPX. It is also possible to integrate with other (web)apps.
 
 How to use it
@@ -66,39 +70,10 @@ How to use it
   generate_garmin_waypoints -y samples/sample_yaml_pois.yml -o file.gpx
 
 
-Render track with OpenStreetMap
----------------------
-
-You can "convert" your tracks to images using this command.
-
-How to use it
--------------
-
-1. Please check if you have installed RMagick gem.
-
-2. Run command.
-
-  gpx2png -g [input GPX file] -s [image size, format: WIDTHxHEIGHT] -o [output PPNG file]
-
-  Example:
-
-  gpx2png -g spec/fixtures/sample.gpx -s 800x600 -o map.png
-
-3. You can specify zoom.
-
-  gpx2png -g [input GPX file] -z [zoom, best results between 9 and 15, max 18] -o [output PPNG file]
-
-  Example:
-
-  gpx2png -g spec/fixtures/sample.gpx -z 11 -o map.png
-
-4. Adding -u forces using [UMP tiles](http://ump.waw.pl/) .
-
-
-Contributing to gpx2xif
+Contributing to gpx_utils
 -------------------------------
 
-[![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=bobik314&url=https://github.com/akwiatkowski/gpx2xif&title=gpx2xif&language=en_GB&tags=github&category=software)
+[![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=bobik314&url=https://github.com/akwiatkowski/gpx_utils&title=gpx_utils&language=en_GB&tags=github&category=software)
 
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
@@ -112,6 +87,6 @@ Contributing to gpx2xif
 Copyright
 ---------
 
-Copyright (c) 2012 Aleksander Kwiatkowski. See LICENSE.txt for
+Copyright (c) 2012-2013 Aleksander Kwiatkowski. See LICENSE.txt for
 further details.
 

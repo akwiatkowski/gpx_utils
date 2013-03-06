@@ -1,1 +1,1 @@
-rvm use 1.9.2@gpx2exif --create
+rvm use 1.9.2@gpx_utils --create
