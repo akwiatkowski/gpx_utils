@@ -20,7 +20,7 @@ Import waypoints file
 
 
 Export waypoints to GPX file
-------------------------
+----------------------------
 
     g = GpxUtils::WaypointsExporter.new
     lat = 52.384444
@@ -30,8 +30,8 @@ Export waypoints to GPX file
     time = "created_at" # optional
     ele = 200 # 200m above sea level, optional
     sym = "Trail Head" # Garmin icon string, optional
-    g.addg.add(lat, lon, name, cmt, time, ele, sym)
-    #g.addg.add(lat, lon, name) # w/o optional parameters
+    g.add(lat, lon, name, cmt, time, ele, sym)
+    #g.add(lat, lon, name) # w/o optional parameters
     xml = g.to_xml
     xmp # GPX file content
 
@@ -87,6 +87,6 @@ Contributing to gpx_utils
 Copyright
 ---------
 
-Copyright (c) 2012-2013 Aleksander Kwiatkowski. See LICENSE.txt for
+Copyright (c) 2012-2014 Aleksander Kwiatkowski. See LICENSE.txt for
 further details.
 
