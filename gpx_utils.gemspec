@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "gpx_utils"
-  s.version = "0.0.0"
+  s.version = "0.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Aleksander Kwiatkowski"]
-  s.date = "2013-03-06"
+  s.date = "2013-12-08"
   s.description = "GPX file utilities. Import track file, import/export waypoints file."
   s.email = "bobikx@poczta.fm"
   s.executables = ["generate_garmin_waypoints"]
@@ -33,7 +33,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/akwiatkowski/gpx_utils"
   s.licenses = ["LGPLv3"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.24"
+  s.rubygems_version = "1.8.25"
   s.summary = "GPX file utilities"
 
   if s.respond_to? :specification_version then
