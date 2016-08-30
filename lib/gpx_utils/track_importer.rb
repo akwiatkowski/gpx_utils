@@ -12,13 +12,14 @@ module GpxUtils
     end
 
     attr_reader :coords
+    attr_reader :error_count
 
     def add_file(path)
       f = File.new(path)
       doc = Nokogiri::XML(f)
       doc.remove_namespaces!
       a = Array.new
-      error_count = 0
+      @error_count = 0
 
       trackpoints = doc.xpath('//gpx/trk/trkseg/trkpt')
       trackpoints.each do |wpt|
@@ -32,7 +33,7 @@ module GpxUtils
         if self.class.coord_valid?(w[:lat], w[:lon], w[:alt], w[:time])
           a << w
         else
-          error_count += 1
+          @error_count += 1
         end
 
       end
@@ -45,7 +46,7 @@ module GpxUtils
 
     # Only import valid coords
     def self.coord_valid?(lat, lon, elevation, time)
-      return true if lat and lon
+      return true if lat and lon and time
       return false
     end
 

@@ -18,6 +18,7 @@
       </gpxx:TrackExtension>
     </extensions>
     <trkseg>
+      <trkpt lat="53.852123" lon="27.519203"><ele>235.000000</ele><hdop>7.2</hdop><sat>4</sat><fix>3d</fix></trkpt>
       <trkpt lat="52.4600566830" lon="16.9067105837">
         <ele>70.79</ele>
         <time>2012-03-24T15:54:56Z</time>

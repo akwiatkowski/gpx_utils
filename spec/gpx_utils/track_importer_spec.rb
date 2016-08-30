@@ -13,5 +13,6 @@ describe GpxUtils::TrackImporter do
       coord[:lat].should_not == 0.0
       coord[:lon].should_not == 0.0
     end
+    g.error_count.should == 1
   end
 end
